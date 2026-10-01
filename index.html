@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content">
+  <meta name="theme-color" content="#0b0f19">
+  <meta name="description" content="CODEMATE — a game where an AI coding partner lives inside your phone and codes with you.">
+  <title>CODEMATE</title>
+  <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="device" class="device">
+    <div class="statusbar" aria-label="Status bar">
+      <span id="sb-time" class="sb-time">--:--</span>
+      <span class="notch" aria-hidden="true"></span>
+      <span class="sb-right">
+        <span id="sb-level" class="sb-level">Lv 1</span>
+        <span id="sb-ai" class="pill off" title="AI mode">OFFLINE</span>
+      </span>
+    </div>
+
+    <main id="screen" class="screen">
+      <!-- Start screen -->
+      <section id="start-screen" class="start-screen">
+        <div class="start-glow" aria-hidden="true"></div>
+        <div class="start-logo" aria-hidden="true">&lt;/&gt;</div>
+        <h1 id="start-title" class="start-title">CODEMATE</h1>
+        <p id="start-sub" class="start-sub">Your AI coding partner.</p>
+        <button id="start-btn" class="btn primary big">START</button>
+        <p class="start-hint">PC: WASD · E · F1 &nbsp;|&nbsp; Mobile: joystick · tap</p>
+      </section>
+
+      <!-- The world inside the phone -->
+      <section id="world-view" class="world-view hidden">
+        <canvas id="world" class="world-canvas" aria-label="Digital world. Move with WASD, arrow keys, the joystick, or by tapping."></canvas>
+        <div class="hud-top">
+          <span id="room-label" class="room-label">Home</span>
+          <div class="xp" title="Experience">
+            <div class="xpbar"><div id="xp-fill" class="xpfill"></div></div>
+            <span id="xp-text" class="xp-text">Lv 1</span>
+          </div>
+        </div>
+        <div id="joystick" class="joystick hidden" aria-label="Movement joystick" role="application"><div class="knob"></div></div>
+        <button id="interact" class="interact-btn hidden">OPEN</button>
+        <div id="dialog" class="dialog hidden" role="dialog" aria-live="polite">
+          <div id="dialog-name" class="dialog-name">CLAUDE</div>
+          <div id="dialog-text" class="dialog-text"></div>
+          <button id="dialog-btn" class="btn primary">NEXT</button>
+        </div>
+      </section>
+
+      <!-- Apps open on top of the world -->
+      <section id="app-layer" class="app-layer hidden">
+        <header class="app-bar">
+          <button id="app-back" class="icon-btn" aria-label="Back">‹</button>
+          <span id="app-title" class="app-title"></span>
+          <button id="app-home" class="icon-btn" aria-label="Home">⌂</button>
+        </header>
+        <div id="app-body" class="app-body"></div>
+      </section>
+    </main>
+
+    <nav id="dock" class="dock hidden" aria-label="Apps">
+      <button data-app="home" aria-label="Home"><span class="app-ico home">⌂</span><span>Home</span></button>
+      <button data-app="codelab" aria-label="Code Lab"><span class="app-ico codelab">&lt;/&gt;</span><span>Code Lab</span></button>
+      <button data-app="files" aria-label="Files"><span class="app-ico files">▤</span><span>Files</span></button>
+      <button data-app="projects" aria-label="Projects"><span class="app-ico projects">◆</span><span>Projects</span></button>
+      <button data-app="terminal" aria-label="Terminal"><span class="app-ico terminal">&gt;_</span><span>Terminal</span></button>
+      <button data-app="airoom" aria-label="AI Room"><span class="app-ico airoom">✦</span><span>AI</span></button>
+      <button data-app="settings" aria-label="Settings"><span class="app-ico settings">⚙</span><span>Settings</span></button>
+    </nav>
+  </div>
+
+  <div id="toasts" class="toasts" aria-live="polite"></div>
+  <div id="modal-root"></div>
+  <div id="dev-overlay" class="dev-overlay" hidden></div>
+
+  <noscript>CODEMATE needs JavaScript to run.</noscript>
+
+  <script src="js/vendor/acorn.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/util.js"></script>
+  <script src="js/analyzer.js"></script>
+  <script src="js/content.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/progress.js"></script>
+  <script src="js/partner.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/brain.js"></script>
+  <script src="js/aiService.js"></script>
+  <script src="js/sandbox.js"></script>
+  <script src="js/editor.js"></script>
+  <script src="js/chat.js"></script>
+  <script src="js/world.js"></script>
+  <script src="js/phone.js"></script>
+  <script src="js/apps/codelab.js"></script>
+  <script src="js/apps/files.js"></script>
+  <script src="js/apps/projects.js"></script>
+  <script src="js/apps/terminal.js"></script>
+  <script src="js/apps/airoom.js"></script>
+  <script src="js/apps/settings.js"></script>
+  <script src="js/devtools.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+{
+  "name": "codemate",
+  "version": "1.0.0",
+  "description": "CODEMATE — an AI coding partner lives inside your phone and codes with you.",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "start": "node server/server.js",
+    "start:mock": "CODEMATE_AI_PROVIDER=mock node server/server.js",
+    "test": "node --test tests/*.test.js",
+    "test:e2e": "node tests/e2e.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
